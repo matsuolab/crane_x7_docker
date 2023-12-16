@@ -19,8 +19,14 @@ echo "$0: CONTAINER=${CONTAINER}"
 # Any changes made to './docker/docker-compose.yml' will recreate and overwrite the container.
 docker-compose -p ${PROJECT} -f ./docker/docker-compose.yml up -d
 
-# Display GUI through X Server by granting full access to any external client.
-xhost +
+if [ ! -z $DISPLAY ]; then
+  XAUTH_RESULT="$(xauth list $DISPLAY)"
+  if [ -z "$XAUTH_RESULT" ]; then
+    xauth generate $DISPLAY .
+  fi
+  XAUTH_RESULT=($(xauth list $DISPLAY))
+  docker exec -it $CONTAINER bash -c "touch /root/.Xauthority; xauth add $DISPLAY ${XAUTH_RESULT[1]} ${XAUTH_RESULT[2]}"
+fi
 
 # Enter the Docker container with a Bash shell (with or without a custom 'roslaunch' command).
 case "$2" in
