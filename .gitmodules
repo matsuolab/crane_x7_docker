@@ -1,0 +1,6 @@
+[submodule "work/catkin_ws/src/crane_x7_ros"]
+	path = work/catkin_ws/src/crane_x7_ros
+	url = https://github.com/rt-net/crane_x7_ros.git
+[submodule "work/catkin_ws/src/crane_x7_description"]
+	path = work/catkin_ws/src/crane_x7_description
+	url = https://github.com/rt-net/crane_x7_description.git
