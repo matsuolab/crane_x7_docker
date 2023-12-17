@@ -7,7 +7,7 @@ $ export CRANEX_PROJECT_NAME=hoge
 $ ./BUILD-DOCKER-IMAGE.sh
 ```
 
-1. プロジェクト名を直接指定する場合
+2. プロジェクト名を直接指定する場合
 ```
 $ ./BUILD-DOCKER-IMAGE.sh hoge
 ```
@@ -21,7 +21,7 @@ $ export CRANEX_PROJECT_NAME=hoge
 $ ./RUN-DOCKER-IMAGE.sh
 ```
 
-1. プロジェクト名を直接指定する場合
+2. プロジェクト名を直接指定する場合
 ```
 $ ./RUN-DOCKER-IMAGE.sh hoge
 ```
